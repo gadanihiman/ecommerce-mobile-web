@@ -1,19 +1,11 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
-</p>
 <h1 align="center">
-  Gatsby's default starter
+  Ecommerce Mobile Web
 </h1>
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
-
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
+This project is built using Gatsby Js (React Js Framework) for generating static site which is very fast and seo friendly. I built this using my Own Boilerplate called [Gatsby Complete Boilerplate](https://github.com/gadanihiman/gatsby-complete-boilerplate) for easily getting started with Gatsby Js Framework, if you are curious about the template, feel free to [check it out in here](https://github.com/gadanihiman/gatsby-complete-boilerplate) and happy for any contribution.
 
 ## 🚀 Quick start
-
+<!-- 
 1.  **Create a Gatsby site.**
 
     Use the Gatsby CLI to create a new site, specifying the default starter.
@@ -94,6 +86,5 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
 
-[![Deploy with ZEIT Now](https://zeit.co/button)](https://zeit.co/import/project?template=https://github.com/gatsbyjs/gatsby-starter-default)
+[![Deploy with ZEIT Now](https://zeit.co/button)](https://zeit.co/import/project?template=https://github.com/gatsbyjs/gatsby-starter-default) -->
 
-<!-- AUTO-GENERATED-CONTENT:END -->
