@@ -1,0 +1,29 @@
+{
+  "title": "Why Choose Us",
+  "data": [
+    {
+      "id": 1,
+      "icon": "easy_entry-prime2",
+      "description": {
+        "en": "Easy online application and Instant approval in less than 10-20 minutes"
+      }
+    },
+    {
+      "id": 2,
+      "icon": "easy_entry-prime2",
+      "description": {
+        "en": "Fair and affordable solutions, rewarding healthy behaviors"
+      },
+      "tooltip": {
+        "en": "Did you know you might spend more money on coffee per month than you would on our term life insurance?"
+      }
+    },
+    {
+      "id": 3,
+      "icon": "easy_entry-prime2",
+      "description": {
+        "en": "We are AIA's digital insurer. No Agents, and No Commissions"
+      }
+    }
+  ]
+}

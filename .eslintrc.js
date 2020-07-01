@@ -1,0 +1,42 @@
+module.exports = {
+  "env": {
+    "browser": true,
+    "es6": true,
+  },
+  "extends": ["airbnb", "prettier"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      jsx: true,
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+  },
+  plugins: [
+    "react",
+    "redux-saga",
+    "jsx-a11y",
+    "import",
+    "react-hooks",
+    "prettier",
+  ],
+  rules: {
+    "linebreak-style": 0,
+    indent: 0,
+    "import/no-extraneous-dependencies": 0,
+    "react/jsx-filename-extension": 0,
+    "max-len": 0,
+    "no-underscore-dangle": 0,
+    "global-require": 0,
+    "react/jsx-indent": 0,
+    "react/jsx-indent-props": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "no-param-reassign": "off",
+    "eol-last": "off",
+    "arrow-body-style": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "no-console": "off",
+    "no-eval": "off",
+    "react/jsx-wrap-multilines": "off",
+  },
+}
