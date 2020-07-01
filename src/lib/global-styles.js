@@ -8,16 +8,14 @@ const GlobalStyle = createGlobalStyle`
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
+    /* display: block; */
   }
   body {
-    margin: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  @media only screen and (max-width: 480px) {
-    html {
-      font-size: 100%;
-    }
+    font-family: -apple-system,Helvetica Neue,Helvetica,Roboto,Droid Sans,Arial,sans-serif;
+    font-weight: 400;
+    font-size: .875rem;
+    color: rgba(0,0,0,.87);
+    /* background: #efefef; */
   }
 `;
 

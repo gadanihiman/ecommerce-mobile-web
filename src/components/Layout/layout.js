@@ -10,6 +10,7 @@ import PropTypes from "prop-types";
 import { Layout as Container, Breadcrumb } from 'antd';
 import { useStaticQuery, graphql } from "gatsby";
 import Header from "./header";
+import BottomNav from "./bottomNav"
 import Footer from "./footer";
 import "./layout.css";
 
@@ -27,7 +28,7 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <Container classname="layout">
+    <Container className="layout">
       <Header siteTitle={data.site.siteMetadata.title} />
       <Content style={{ padding: '0 50px' }}>
         <Breadcrumb style={{ margin: '16px 0' }}>
@@ -37,6 +38,7 @@ const Layout = ({ children }) => {
         </Breadcrumb>
         <div className="site-layout-content">{children}</div>
       </Content>
+      <BottomNav />
       <Footer style={{ textAlign: 'center' }} />
     </Container>
   )
