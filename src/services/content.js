@@ -1,9 +1,9 @@
 /* eslint-disable import/prefer-default-export */
-import APIRequest from "../lib/request"
+import APIRequest from '../lib/request'
 
-export const getExampleDataApi = () => {
-  console.log("api getExampleDataApi")
-  return APIRequest("/pokemon")
+export const getHomepageDataApi = () => {
+  console.log('api getHomepageDataApi')
+  return APIRequest('/home')
 };
 
 // export const getProductApi = async productId => {

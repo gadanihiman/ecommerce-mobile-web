@@ -1,10 +1,13 @@
-import { LOAD_EXAMPLES_DATA, LOAD_EXAMPLES_DATA_SUCCESS } from "./constant"
+import {
+  LOAD_HOMEPAGE_DATA,
+  LOAD_HOMEPAGE_DATA_SUCCESS
+} from "./constant"
 
-export const getExamplesData = () => ({
-  type: LOAD_EXAMPLES_DATA,
+export const getHomePageData = () => ({
+  type: LOAD_HOMEPAGE_DATA,
 })
 
-export const getExampleLoaded = (data) => ({
-  type: LOAD_EXAMPLES_DATA_SUCCESS,
-  examplesData: data,
+export const getHomePageDataLoaded = data => ({
+  type: LOAD_HOMEPAGE_DATA_SUCCESS,
+  homepageData: data,
 })

@@ -1,27 +1,30 @@
 import { fromJS } from "immutable"
 import {
-  LOAD_EXAMPLES_DATA,
-  LOAD_EXAMPLES_DATA_SUCCESS,
-  LOAD_EXAMPLES_DATA_ERROR,
+  LOAD_HOMEPAGE_DATA,
+  LOAD_HOMEPAGE_DATA_SUCCESS,
+  LOAD_HOMEPAGE_DATA_ERROR,
 } from "./constant"
 
 const initialState = fromJS({
   loading: false,
   error: false,
-  examplesData: {},
+  homepageData: {
+    category: [],
+    productPromo: []
+  },
 })
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case LOAD_EXAMPLES_DATA:
+    case LOAD_HOMEPAGE_DATA:
       return state.set("loading", true)
 
-    case LOAD_EXAMPLES_DATA_SUCCESS:
+    case LOAD_HOMEPAGE_DATA_SUCCESS:
       return state
         .set("loading", false)
-        .set("examplesData", fromJS(action.examplesData))
+        .set("homepageData", fromJS(action.homepageData))
 
-    case LOAD_EXAMPLES_DATA_ERROR:
+    case LOAD_HOMEPAGE_DATA_ERROR:
       return state.set("loading", false).set("error", action.error)
 
     default:

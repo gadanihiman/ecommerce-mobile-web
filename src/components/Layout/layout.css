@@ -1,7 +1,8 @@
 .site-layout-content {
-  background: #fff;
-  padding: 24px;
+  /* background: #fff; */
+  padding: 24px 10px;
   min-height: 280px;
+  margin: auto;
 }
 
 .logo {

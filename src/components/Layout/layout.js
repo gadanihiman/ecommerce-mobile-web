@@ -30,7 +30,7 @@ const Layout = ({ children }) => {
   return (
     <Container className="layout">
       <Header siteTitle={data.site.siteMetadata.title} />
-      <Content style={{ padding: '0 50px' }}>
+      <Content style={{ padding: '0 10px' }}>
         <Breadcrumb style={{ margin: '16px 0' }}>
           <Breadcrumb.Item>Home</Breadcrumb.Item>
           <Breadcrumb.Item>List</Breadcrumb.Item>
