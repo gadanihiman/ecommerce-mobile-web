@@ -60,7 +60,10 @@
   z-index: 90;
   padding: 8px;
   border-radius: 16px 16px 0px 0px;
+}
 
+.content {
+  padding: 0px 10px;
 }
 
 .bottomMenu {
@@ -74,7 +77,17 @@
   width: 85%;
 }
 
+.pagetitle {
+  text-align: left;
+  width: 90%;
+}
+
 .love {
+  margin: auto;
+  width: 5%;
+}
+
+.back {
   margin: auto;
   width: 5%;
 }

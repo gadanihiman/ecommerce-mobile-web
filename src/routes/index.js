@@ -6,8 +6,16 @@ module.exports = [
     component: path.resolve('src/containers/index.js'),
   },
   {
-    path: '/about-us',
-    component: path.resolve('src/containers/page-2.js'),
+    path: '/purchased',
+    component: path.resolve('src/containers/purchased.js'),
+  },
+  {
+    path: '/wishlist',
+    component: path.resolve('src/containers/wishlist.js'),
+  },
+  {
+    path: '/product',
+    component: path.resolve('src/containers/product.js'),
   },
   {
     path: '/404',

@@ -6,9 +6,9 @@ const { Footer: FooterBase } = Layout;
 const Footer = () => (
   <FooterBase>
     {/* Footer {siteTitle} */}
-    © {new Date().getFullYear()}, Built with
+    © {new Date().getFullYear()}, Made with love by
     {` `}
-    <a href="https://www.gatsbyjs.org">Gatsby</a>
+    <a href="https://github.com/gadanihiman">Gadani H.G</a>
   </FooterBase>
 )
 

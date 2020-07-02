@@ -30,3 +30,17 @@ export const LovedBtnWrapper = styled.div`
   bottom: 0px;
   padding: 5px;
 `;
+
+export const BackButton = styled.div`
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  padding: 5px;
+`;
+
+export const ShareButton = styled.div`
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  padding: 5px;
+`;

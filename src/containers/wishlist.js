@@ -12,45 +12,31 @@ import SEO from "../components/Layout/seo"
 import { getHomePageData } from "../redux/Home/action"
 import { selectHomePageData } from "../redux/Home/selectors"
 
-const IndexPage = ({ onGetHomePageData, homepageData }) => {
+const Wishlist = ({ onGetHomePageData, homepageData }) => {
   useEffect(() => {
     onGetHomePageData()
   }, [onGetHomePageData])
   console.log('homepageData', homepageData)
   const homepageDataResolved = homepageData.toJS();
-  const categories = get(homepageDataResolved, 'category', []);
-  const categoriesFormated = categories.map(data => {
-    return {
-      ...data,
-      title: data.name,
-    }
-  })
   const productsPromo = get(homepageDataResolved, 'productPromo', []);
   return (
-    <Layout withSearch withLoveButton>
-      <SEO title="Home" />
-      <Section>
-        <ProductList
-          products={categoriesFormated}
-          textAlign="center"
-          withSlider
-        />
-      </Section>
+    <Layout title="Wishlist" withBackButton>
+      <SEO title="Purchased products" />
       <Section>
         <ProductList
           products={productsPromo}
-          withLoveButton
-          display="vertical"
-          imageWidth="100%"
-          imageHeight="150px"
+          withPrice
+          display="horizontal"
+          imageWidth="70px"
+          imageHeight="70px"
         />
       </Section>
-      <Link to="/purchased">Go to purchased page</Link>
+      <Link to="/">Go to Homepage</Link>
     </Layout>
   )
 }
 
-IndexPage.propTypes = {
+Wishlist.propTypes = {
   onGetHomePageData: func.isRequired,
   homepageData: objectOf(any).isRequired,
 };
@@ -63,4 +49,4 @@ export const mapDispatchToProps = {
   onGetHomePageData: getHomePageData,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(IndexPage)
+export default connect(mapStateToProps, mapDispatchToProps)(Wishlist)

@@ -1,21 +1,39 @@
 import { Input } from 'antd';
-import { Link } from 'gatsby';
-import React, { useState } from 'react';
-import { SearchOutlined, HeartOutlined } from '@ant-design/icons';
+// import { Link } from 'gatsby';
+import React from 'react';
+import { SearchOutlined, HeartOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 
-import PropTypes from "prop-types"
+import { bool, string } from "prop-types"
 import "./layout.css";
 
-const Header = ({ siteTitle }) => {
-
+const Header = ({
+  withSearch,
+  withBackButton,
+  withLoveButton,
+  title,
+}) => {
   return (
     <div className="header">
-      <div className="love">
-        <HeartOutlined />
-      </div>
-      <div className="search">
-        <Input placeholder="Search.." prefix={<SearchOutlined />} />
-      </div>
+      {withBackButton && (
+        <div className="back">
+          <ArrowLeftOutlined />
+        </div>
+      )}
+      {withLoveButton && (
+        <div className="love">
+          <HeartOutlined />
+        </div>
+      )}
+      {withSearch && (
+        <div className="search">
+          <Input placeholder="Search.." prefix={<SearchOutlined />} />
+        </div>
+      )}
+      {title && (
+        <div className="pagetitle">
+          {title}
+        </div>
+      )}
       {/* <div className="logo">
         <h1 style={{ color: 'white' }}>{siteTitle}</h1>
       </div> */}
@@ -25,11 +43,17 @@ const Header = ({ siteTitle }) => {
 
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
+  withSearch: bool,
+  withBackButton: bool,
+  withLoveButton: bool,
+  title: string,
 }
 
 Header.defaultProps = {
-  siteTitle: ``,
+  withBackButton: false,
+  withLoveButton: false,
+  withSearch: false,
+  title: null,
 }
 
 export default Header

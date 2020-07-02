@@ -6,8 +6,8 @@
  */
 
 import React from "react";
-import PropTypes from "prop-types";
-import { Layout as Container, Breadcrumb } from 'antd';
+import { string, node, bool } from "prop-types";
+import { Layout as Container } from 'antd';
 import { useStaticQuery, graphql } from "gatsby";
 import Header from "./header";
 import BottomNav from "./bottomNav"
@@ -16,7 +16,14 @@ import "./layout.css";
 
 const { Content } = Container;
 
-const Layout = ({ children }) => {
+const Layout = ({
+  children,
+  title,
+  withSearch,
+  withBackButton,
+  withLoveButton,
+  withHeader,
+}) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -29,13 +36,19 @@ const Layout = ({ children }) => {
 
   return (
     <Container className="layout">
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <Content style={{ padding: '0 10px' }}>
-        <Breadcrumb style={{ margin: '16px 0' }}>
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>List</Breadcrumb.Item>
-          <Breadcrumb.Item>App</Breadcrumb.Item>
-        </Breadcrumb>
+      {withHeader && <Header
+        withBackButton={withBackButton}
+        withLoveButton={withLoveButton}
+        withSearch={withSearch}
+        title={title}
+        siteTitle={data.site.siteMetadata.title}
+      />}
+      <Content
+        className="content"
+        style={{
+          ...(withHeader ? { margin: '46px 0px' } : { margin: '0px 0px' })
+        }}
+      >
         <div className="site-layout-content">{children}</div>
       </Content>
       <BottomNav />
@@ -45,7 +58,20 @@ const Layout = ({ children }) => {
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+  withHeader: bool,
+  children: node.isRequired,
+  title: string,
+  withSearch: bool,
+  withBackButton: bool,
+  withLoveButton: bool,
+}
+
+Layout.defaultProps = {
+  withHeader: true,
+  title: null,
+  withSearch: false,
+  withBackButton: false,
+  withLoveButton: false,
 }
 
 export default Layout
