@@ -3,6 +3,7 @@
 </h1>
 
 ** This Project is live and deployed in here [Ecommerce Mobile Web](https://ecommerce-mobile-web.netlify.app/) **
+Notes: Please use your Mobile for better UI since this website is only built for Mobile UI
 
 This project is built using Gatsby Js (React Js Framework) for generating static site which is very fast and seo friendly. I built this using my Own Boilerplate called [Gatsby Complete Boilerplate](https://github.com/gadanihiman/gatsby-complete-boilerplate) for easily getting started with Gatsby Js Framework, if you are curious about the template, feel free to [check it out in here](https://github.com/gadanihiman/gatsby-complete-boilerplate) and happy for any contribution.
 
