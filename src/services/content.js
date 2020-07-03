@@ -2,7 +2,6 @@
 import APIRequest from '../lib/request'
 
 export const getHomepageDataApi = () => {
-  console.log('api getHomepageDataApi')
   return APIRequest('/home')
 };
 

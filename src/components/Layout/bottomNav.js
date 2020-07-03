@@ -1,11 +1,9 @@
 import { Link } from 'gatsby';
 import React from 'react';
 
-import PropTypes from "prop-types"
 import "./layout.css";
 
-const BottomNav = ({ siteTitle }) => {
-
+const BottomNav = () => {
   return (
     <div className="bottomNav">
       <Link to="/" className="bottomMenu">
@@ -25,12 +23,12 @@ const BottomNav = ({ siteTitle }) => {
 };
 
 
-BottomNav.propTypes = {
-  siteTitle: PropTypes.string,
-}
+// BottomNav.propTypes = {
+//   siteTitle: PropTypes.string,
+// }
 
-BottomNav.defaultProps = {
-  siteTitle: ``,
-}
+// BottomNav.defaultProps = {
+//   siteTitle: ``,
+// }
 
 export default BottomNav

@@ -6,7 +6,7 @@
  */
 
 import React from "react";
-import { string, node, bool } from "prop-types";
+import { string, node, bool, func } from "prop-types";
 import { Layout as Container } from 'antd';
 import { useStaticQuery, graphql } from "gatsby";
 import Header from "./header";
@@ -68,6 +68,7 @@ Layout.propTypes = {
   withSearch: bool,
   withBackButton: bool,
   withLoveButton: bool,
+  setIsSearch: func.isRequired,
 }
 
 Layout.defaultProps = {

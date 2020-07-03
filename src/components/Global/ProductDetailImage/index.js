@@ -9,7 +9,6 @@ import { Image } from '../styled';
 import { CardContainer, CardImage, BackButton, ShareButton } from './styled';
 
 const ProductDetailImage = ({ imageUrl, withShareButton, withBackButton }) => {
-  console.log('imageUrl', imageUrl);
   return (
     <CardContainer>
       <CardImage>

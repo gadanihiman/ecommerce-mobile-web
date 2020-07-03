@@ -5,7 +5,7 @@ import { Link } from "gatsby"
 import { SearchOutlined, HeartOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 import { connect } from "react-redux"
 import { createStructuredSelector } from "reselect"
-import { bool, string } from "prop-types"
+import { bool, string, func, objectOf, any } from "prop-types"
 import { get } from 'lodash';
 
 import { selectHomePageData } from "../../redux/Home/selectors"
@@ -30,11 +30,8 @@ const Header = ({
   };
   
   const handleChangeSearch = () => e => {
-    console.log('e.target.value', e.target.value);
-    console.log('allData header', allData);
     onChangeSearchText(e.target.value);
     onGetSearchData({ searchText, allData });
-    console.log('searchText inside comp', searchText);
   };
 
   return (
@@ -82,6 +79,11 @@ Header.propTypes = {
   withBackButton: bool,
   withLoveButton: bool,
   title: string,
+  onChangeSearchText: func.isRequired,
+  onGetSearchData: func.isRequired,
+  setIsSearch: func.isRequired,
+  searchText: string.isRequired,
+  homepageData: objectOf(any).isRequired,
 }
 
 Header.defaultProps = {

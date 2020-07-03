@@ -16,7 +16,6 @@ import { getHomepageDataApi } from "../../services/content"
 export function* getHomepageData() {
   try {
     const data = yield call(getHomepageDataApi);
-    console.log('data', data);
     const homepageData = get(data, 'data[0].data', null)
     yield put(getHomePageDataLoaded(homepageData));
   } catch (error) {
@@ -40,13 +39,12 @@ export function* getHomepageDataWatcher() {
  * @export
  */
 export function* findData({ payload: { searchText, allData }}) {
-  console.log('allData saga', allData);
-  console.log('searchText saga', searchText);
+  const searchTextFormatted = searchText.toLowerCase();
   const dataMatched = allData.filter(item => {
     const title = get(item, 'title', '');
-    return title.search(searchText) >= 0;
+    const titleFormatted = title.toLowerCase();
+    return titleFormatted.search(searchTextFormatted) >= 0;
   });
-  console.log('dataMatched', dataMatched);
   yield put(getSearchDataSuccess(dataMatched));
 }
 
