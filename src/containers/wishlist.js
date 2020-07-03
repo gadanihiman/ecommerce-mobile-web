@@ -12,7 +12,7 @@ import { selectHomePageData } from "../redux/Home/selectors"
 const Wishlist = ({ wishlistProduct }) => {
   return (
     <Layout title="Wishlist" withBackButton>
-      <SEO title="Wishlist products | Ecommerce Mobile Web" />
+      <SEO title="Wishlist products" />
       <Section>
         <ProductList
           products={wishlistProduct}

@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Complete Boilerplate`,
-    description: `Gatsby Complete Boilerplate.`,
+    title: `Ecommerce Mobile Web`,
+    description: `Ecommerce Mobile Web.`,
     author: `@gadanihiman`,
   },
   plugins: [

@@ -12,7 +12,7 @@ import { selectHomePageData } from "../redux/Home/selectors"
 const PurchasedPage = ({ purchasedProduct }) => {
   return (
     <Layout title="Purchased History" withBackButton>
-      <SEO title="Purchased products | Ecommerce Mobile Web" />
+      <SEO title="Purchased products" />
       <Section>
         <ProductList
           withPrice

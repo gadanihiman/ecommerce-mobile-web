@@ -26,7 +26,7 @@ const Product = ({ homepageData, location }) => {
 
   return (
     <Layout withHeader={false}>
-      <SEO title={`${productDetail.name} | Ecommerce Mobile Web`} />
+      <SEO title={`${productDetail.name}`} />
       {!product && <div>No Product Found</div>}
       {product && (
         <>
