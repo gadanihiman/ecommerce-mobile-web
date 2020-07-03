@@ -31,7 +31,7 @@ const IndexPage = ({ onGetHomePageData, homepageData, searchData, loadData }) =>
       withLoveButton={!isSearch}
       withSearch
     >
-      <SEO title="Home" />
+      <SEO title="Ecommerce Mobile Web | We are the Best Ecommerce in the world" />
       {!isSearch && !loadData && (
         <>
           {!isEmpty(categoriesFormated) ? (

@@ -12,7 +12,7 @@ import SEO from "../components/Layout/seo"
 const Login = () => {
   return (
     <Layout withHeader={false} withBottomNav={false}>
-      <SEO title="Login Page" />
+      <SEO title="Login | Ecommerce Mobile Web" />
       <Section style={{ marginTop: 40 }}>
         <LoginForm />
       </Section>
