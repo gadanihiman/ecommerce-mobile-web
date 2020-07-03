@@ -23,6 +23,7 @@ const Layout = ({
   withBackButton,
   withLoveButton,
   withHeader,
+  withBottomNav,
   setIsSearch,
 }) => {
   const data = useStaticQuery(graphql`
@@ -54,13 +55,14 @@ const Layout = ({
         <div className="site-layout-content">{children}</div>
       </Content>
       <Footer style={{ textAlign: 'center' }} />
-      <BottomNav />
+      {withBottomNav && <BottomNav />}
     </Container>
   )
 }
 
 Layout.propTypes = {
   withHeader: bool,
+  withBottomNav: bool,
   children: node.isRequired,
   title: string,
   withSearch: bool,
@@ -70,6 +72,7 @@ Layout.propTypes = {
 
 Layout.defaultProps = {
   withHeader: true,
+  withBottomNav: true,
   title: null,
   withSearch: false,
   withBackButton: false,

@@ -6,6 +6,10 @@ module.exports = [
     component: path.resolve('src/containers/index.js'),
   },
   {
+    path: '/login',
+    component: path.resolve('src/containers/login.js'),
+  },
+  {
     path: '/purchased',
     component: path.resolve('src/containers/purchased.js'),
   },

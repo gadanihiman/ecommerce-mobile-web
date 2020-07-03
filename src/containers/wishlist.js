@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import { connect } from "react-redux"
 import { createStructuredSelector } from "reselect"
 
