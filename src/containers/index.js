@@ -1,10 +1,10 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
 import { connect } from "react-redux"
 import { createStructuredSelector } from "reselect"
-import { get } from "lodash"
+import { get, isEmpty } from "lodash"
 
-import { func, any, objectOf } from "prop-types"
+import { func, any, objectOf, arrayOf } from "prop-types"
 import Layout from "../components/Layout/layout"
 import ProductList from '../components/Global/ProductList'
 import { Section } from '../components/Global/styled'
@@ -12,39 +12,58 @@ import SEO from "../components/Layout/seo"
 import { getHomePageData } from "../redux/Home/action"
 import { selectHomePageData } from "../redux/Home/selectors"
 
-const IndexPage = ({ onGetHomePageData, homepageData }) => {
+const IndexPage = ({ onGetHomePageData, homepageData, searchData }) => {
+  const [isSearch, setIsSearch] = useState(false);
   useEffect(() => {
     onGetHomePageData()
   }, [onGetHomePageData])
-  console.log('homepageData', homepageData)
   const homepageDataResolved = homepageData.toJS();
+  const searchDataFormatted = searchData.toJS();
+  console.log('searchDataFormatted', searchDataFormatted);
   const categories = get(homepageDataResolved, 'category', []);
-  const categoriesFormated = categories.map(data => {
-    return {
-      ...data,
-      title: data.name,
-    }
-  })
+  const categoriesFormated = categories.map(data => ({
+    ...data,
+    title: data.name,
+  }));
   const productsPromo = get(homepageDataResolved, 'productPromo', []);
   return (
-    <Layout withSearch withLoveButton>
+    <Layout
+      withBackButton={isSearch}
+      setIsSearch={setIsSearch}
+      withLoveButton={!isSearch}
+      withSearch
+    >
       <SEO title="Home" />
-      <Section>
+      {!isSearch && (
+        <>
+          <Section>
+            <ProductList
+              products={categoriesFormated}
+              textAlign="center"
+              withSlider
+            />
+          </Section>
+          <Section>
+            <ProductList
+              products={productsPromo}
+              withLoveButton
+              display="vertical"
+              imageWidth="100%"
+              imageHeight="150px"
+            />
+          </Section>
+        </>
+      )}
+      {isSearch && !isEmpty(searchDataFormatted) && (
         <ProductList
-          products={categoriesFormated}
-          textAlign="center"
-          withSlider
+          withPrice
+          products={searchDataFormatted}
+          display="horizontal"
+          imageWidth="60px"
+          imageHeight="60px"
         />
-      </Section>
-      <Section>
-        <ProductList
-          products={productsPromo}
-          withLoveButton
-          display="vertical"
-          imageWidth="100%"
-          imageHeight="150px"
-        />
-      </Section>
+      )}
+      {isSearch && isEmpty(searchDataFormatted) && <div>No product found</div>}
       <Link to="/purchased">Go to purchased page</Link>
     </Layout>
   )
@@ -53,10 +72,12 @@ const IndexPage = ({ onGetHomePageData, homepageData }) => {
 IndexPage.propTypes = {
   onGetHomePageData: func.isRequired,
   homepageData: objectOf(any).isRequired,
+  searchData: arrayOf(any).isRequired
 };
 
 export const mapStateToProps = createStructuredSelector({
   homepageData: selectHomePageData(),
+  searchData: selectHomePageData('searchData'),
 });
 
 export const mapDispatchToProps = {

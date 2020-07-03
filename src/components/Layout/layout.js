@@ -23,6 +23,7 @@ const Layout = ({
   withBackButton,
   withLoveButton,
   withHeader,
+  setIsSearch,
 }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -42,6 +43,7 @@ const Layout = ({
         withSearch={withSearch}
         title={title}
         siteTitle={data.site.siteMetadata.title}
+        setIsSearch={setIsSearch}
       />}
       <Content
         className="content"

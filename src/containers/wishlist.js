@@ -16,7 +16,6 @@ const Wishlist = ({ onGetHomePageData, homepageData }) => {
   useEffect(() => {
     onGetHomePageData()
   }, [onGetHomePageData])
-  console.log('homepageData', homepageData)
   const homepageDataResolved = homepageData.toJS();
   const productsPromo = get(homepageDataResolved, 'productPromo', []);
   return (

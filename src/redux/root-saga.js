@@ -1,7 +1,10 @@
 import { all } from "redux-saga/effects"
 
-import { getHomepageDataWatcher } from "./Home/saga"
+import { getHomepageDataWatcher, findDataWatcher } from "./Home/saga"
 
 export default function* rootSaga() {
-  yield all([getHomepageDataWatcher()])
+  yield all([
+    getHomepageDataWatcher(),
+    findDataWatcher(),
+  ])
 }

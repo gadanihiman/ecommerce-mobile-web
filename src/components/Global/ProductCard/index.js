@@ -19,7 +19,6 @@ const ProductCard = ({
   withLoveButton,
   ...attr
 }) => {
-  console.log('productPrice', productPrice);
   return (
     <CardContainer display={display} {...attr}>
       <CardImage>
