@@ -19,7 +19,6 @@ const IndexPage = ({ onGetHomePageData, homepageData, searchData }) => {
   }, [onGetHomePageData])
   const homepageDataResolved = homepageData.toJS();
   const searchDataFormatted = searchData.toJS();
-  console.log('searchDataFormatted', searchDataFormatted);
   const categories = get(homepageDataResolved, 'category', []);
   const categoriesFormated = categories.map(data => ({
     ...data,
@@ -36,22 +35,30 @@ const IndexPage = ({ onGetHomePageData, homepageData, searchData }) => {
       <SEO title="Home" />
       {!isSearch && (
         <>
-          <Section>
-            <ProductList
-              products={categoriesFormated}
-              textAlign="center"
-              withSlider
-            />
-          </Section>
-          <Section>
-            <ProductList
-              products={productsPromo}
-              withLoveButton
-              display="vertical"
-              imageWidth="100%"
-              imageHeight="150px"
-            />
-          </Section>
+          {!isEmpty(categoriesFormated) ? (
+            <Section>
+              <ProductList
+                products={categoriesFormated}
+                textAlign="center"
+                withSlider
+              />
+            </Section>
+          ) : (
+            <div>No categories</div>
+          )}
+          {!isEmpty(productsPromo) ? (
+            <Section>
+              <ProductList
+                products={productsPromo}
+                withLoveButton
+                display="vertical"
+                imageWidth="100%"
+                imageHeight="150px"
+              />
+            </Section>
+          ) : (
+            <div>No products</div>
+          )}
         </>
       )}
       {isSearch && !isEmpty(searchDataFormatted) && (
@@ -64,7 +71,6 @@ const IndexPage = ({ onGetHomePageData, homepageData, searchData }) => {
         />
       )}
       {isSearch && isEmpty(searchDataFormatted) && <div>No product found</div>}
-      <Link to="/purchased">Go to purchased page</Link>
     </Layout>
   )
 }

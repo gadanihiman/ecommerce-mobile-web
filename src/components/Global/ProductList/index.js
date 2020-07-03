@@ -2,7 +2,7 @@
 import React from "react";
 import { arrayOf, any, string, bool } from "prop-types";
 import Slider from "react-slick";
-import { Link } from 'gatsby';
+import { get } from 'lodash';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -32,49 +32,33 @@ const ProductList = ({
     <CardContainer>
       { withSlider ? (
         <Slider {...sliderSetting}>
-          {products.map(({
-            id,
-            title,
-            price,
-            imageUrl,
-          }) => (
-            <div key={id}>
+          {products.map(product => (
+            <div key={get(product, 'id', 1)}>
               <ProductCard
-                display={display}
                 withPrice={withPrice}
-                productPrice={price}
-                productName={title}
-                imageSrc={imageUrl}
+                withLoveButton={withLoveButton}
+                product={product}
+                display={display}
                 imageWidth={imageWidth}
                 imageHeight={imageHeight}
-                withLoveButton={withLoveButton}
                 textAlign={textAlign}
               />
             </div>
           ))}
         </Slider>
       ) : (
-        products.map(({
-          id,
-          title,
-          price,
-          imageUrl,
-        }) => (
-          <Link to={`/product?id=${id}`} className="bottomMenu" key={id}>
-            <CardWrapper>
-              <ProductCard
-                display={display}
-                withPrice={withPrice}
-                productPrice={price}
-                productName={title}
-                imageSrc={imageUrl}
-                imageWidth={imageWidth}
-                imageHeight={imageHeight}
-                withLoveButton={withLoveButton}
-                textAlign={textAlign}
-              />
-            </CardWrapper>
-          </Link>
+        products.map(product => (
+          <CardWrapper key={get(product, 'id', 1)}>
+            <ProductCard
+              withLoveButton={withLoveButton}
+              withPrice={withPrice}
+              product={product}
+              display={display}
+              imageWidth={imageWidth}
+              imageHeight={imageHeight}
+              textAlign={textAlign}
+            />
+          </CardWrapper>
         ))
       )}
     </CardContainer>

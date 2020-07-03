@@ -4,6 +4,8 @@ import {
   CHANGE_SEARCH_TEXT,
   LOAD_SEARCH_DATA,
   LOAD_SEARCH_DATA_SUCCESS,
+  PURCHASE_PRODUCT,
+  WISHLIST_PRODUCT,
 } from "./constant"
 
 export const getHomePageData = () => ({
@@ -27,5 +29,15 @@ export const getSearchData = payload => ({
 
 export const getSearchDataSuccess = payload => ({
   type: LOAD_SEARCH_DATA_SUCCESS,
+  payload,
+})
+
+export const purchaseProduct = payload => ({
+  type: PURCHASE_PRODUCT,
+  payload,
+})
+
+export const wishlistProduct = payload => ({
+  type: WISHLIST_PRODUCT,
   payload,
 })

@@ -48,7 +48,7 @@ const Header = ({
       )}
       {withLoveButton && (
         <div className="love">
-          <Link to="/purchased">
+          <Link to="/wishlist">
             <HeartOutlined />
           </Link>
         </div>

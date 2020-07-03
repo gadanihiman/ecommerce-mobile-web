@@ -5,6 +5,8 @@ import {
   LOAD_HOMEPAGE_DATA_ERROR,
   CHANGE_SEARCH_TEXT,
   LOAD_SEARCH_DATA_SUCCESS,
+  PURCHASE_PRODUCT,
+  WISHLIST_PRODUCT,
 } from './constant'
 
 const initialState = fromJS({
@@ -16,10 +18,26 @@ const initialState = fromJS({
   },
   searchText: null,
   searchData: [],
+  purchasedProduct: [],
+  wishlistProduct: [],
 })
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case PURCHASE_PRODUCT:
+      return state.set('purchasedProduct', state.get('purchasedProduct').push(action.payload))
+
+    case WISHLIST_PRODUCT: {
+      const wishlistedProduct = state.get('wishlistProduct');
+      const isExistProduct = !!wishlistedProduct.find(item => item.id === action.payload.id);
+      if (isExistProduct) {
+        const filteredWishlistedProd = wishlistedProduct.filter(item => item.id !== action.payload.id);
+        return state.set('wishlistProduct', filteredWishlistedProd)
+      }
+      const newWishlistedProduct = wishlistedProduct.push(action.payload);
+      return state.set('wishlistProduct', newWishlistedProduct)
+    }
+
     case CHANGE_SEARCH_TEXT:
       return state.set('searchText', action.payload)
 

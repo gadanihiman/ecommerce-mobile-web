@@ -14,10 +14,10 @@ const BottomNav = ({ siteTitle }) => {
       <Link to="/about-us" className="bottomMenu">
         Feed
       </Link>
-      <Link to="/about-us" className="bottomMenu">
+      <Link to="/purchased" className="bottomMenu">
         Cart
       </Link>
-      <Link to="/about-us" className="bottomMenu">
+      <Link to="/wishlist" className="bottomMenu">
         Profile
       </Link>
     </div>

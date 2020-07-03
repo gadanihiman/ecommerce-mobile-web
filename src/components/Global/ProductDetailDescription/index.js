@@ -1,19 +1,23 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
-import { string } from "prop-types";
+import { string, objectOf, any, func } from "prop-types";
 import { Button } from 'antd';
+import { connect } from "react-redux"
+import { get } from "lodash";
 
 import { Container, Description, ButtonContainer, Price } from './styled';
+import { purchaseProduct } from "../../../redux/Home/action";
 
-const ProductDetailContent = ({ description, price }) => {
+const ProductDetailContent = ({ description, product, onPurchaseProduct }) => {
   const buyButtonClicked = () => {
     console.log('clicked!');
+    onPurchaseProduct(product);
   };
   return (
     <Container>
       <Description>{description}</Description>
       <ButtonContainer>
-        <Price>{price}</Price>
+        <Price>{get(product, 'price', '$0')}</Price>
         <div>
           <Button
             style={{
@@ -31,14 +35,21 @@ const ProductDetailContent = ({ description, price }) => {
 };
 
 ProductDetailContent.propTypes = {
-  price: string,
+  product: objectOf(any),
   description: string.isRequired,
+  onPurchaseProduct: func.isRequired,
 };
 
 ProductDetailContent.defaultProps = {
-  price: 0,
+  product: 0,
 };
 
-export default ProductDetailContent;
+// export const mapStateToProps = createStructuredSelector({
+//   homepageData: selectHomePageData(),
+// });
 
+export const mapDispatchToProps = {
+  onPurchaseProduct: purchaseProduct,
+};
 
+export default connect(null, mapDispatchToProps)(ProductDetailContent)
