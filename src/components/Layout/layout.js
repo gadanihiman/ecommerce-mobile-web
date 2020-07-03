@@ -53,8 +53,8 @@ const Layout = ({
       >
         <div className="site-layout-content">{children}</div>
       </Content>
-      <BottomNav />
       <Footer style={{ textAlign: 'center' }} />
+      <BottomNav />
     </Container>
   )
 }

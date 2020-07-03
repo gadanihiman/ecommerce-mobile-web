@@ -60,22 +60,24 @@ const ProductCard = ({
           </LovedBtnWrapper>
         )}
       </CardImage>
-      <CardContent display={display}>
-        <ProductLabel
-          display={display}
-          textAlign={textAlign || 'left'}
-        >
-          {productName}
-        </ProductLabel>
-        {withPrice && (
+      <Link to={`/product?id=${productID}`}>
+        <CardContent display={display}>
           <ProductLabel
             display={display}
             textAlign={textAlign || 'left'}
           >
-            {productPrice}
+            {productName}
           </ProductLabel>
-        )}
-      </CardContent>
+          {withPrice && (
+            <ProductLabel
+              display={display}
+              textAlign={textAlign || 'left'}
+            >
+              {productPrice}
+            </ProductLabel>
+          )}
+        </CardContent>
+      </Link>
     </CardContainer>
   );
 };

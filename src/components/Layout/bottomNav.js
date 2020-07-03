@@ -11,7 +11,7 @@ const BottomNav = ({ siteTitle }) => {
       <Link to="/" className="bottomMenu">
         Home
       </Link>
-      <Link to="/about-us" className="bottomMenu">
+      <Link to="/" className="bottomMenu">
         Feed
       </Link>
       <Link to="/purchased" className="bottomMenu">

@@ -4,7 +4,7 @@ import React from "react"
 const { Footer: FooterBase } = Layout;
 
 const Footer = () => (
-  <FooterBase>
+  <FooterBase style={{ marginBottom: 60 }}>
     {/* Footer {siteTitle} */}
     © {new Date().getFullYear()}, Made with love by
     {` `}

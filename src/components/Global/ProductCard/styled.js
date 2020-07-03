@@ -22,6 +22,7 @@ export const CardImage = styled.div`
 export const CardContent = styled.div`
   display: ${({ display }) => display === 'horizontal' ? 'block' : 'flex'};
   width: 100%;
+  color: black;
 `;
 
 export const LovedBtnWrapper = styled.div`
