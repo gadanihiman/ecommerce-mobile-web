@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import { createStructuredSelector } from "reselect"
 import { get, isEmpty } from "lodash"
 
-import { func, any, objectOf, arrayOf } from "prop-types"
+import { func, any, objectOf, arrayOf, bool } from "prop-types"
 import Layout from "../components/Layout/layout"
 import ProductList from '../components/Global/ProductList'
 import { Section } from '../components/Global/styled'
@@ -11,7 +11,7 @@ import SEO from "../components/Layout/seo"
 import { getHomePageData } from "../redux/Home/action"
 import { selectHomePageData } from "../redux/Home/selectors"
 
-const IndexPage = ({ onGetHomePageData, homepageData, searchData }) => {
+const IndexPage = ({ onGetHomePageData, homepageData, searchData, loadData }) => {
   const [isSearch, setIsSearch] = useState(false);
   useEffect(() => {
     onGetHomePageData()
@@ -32,7 +32,7 @@ const IndexPage = ({ onGetHomePageData, homepageData, searchData }) => {
       withSearch
     >
       <SEO title="Home" />
-      {!isSearch && (
+      {!isSearch && !loadData && (
         <>
           {!isEmpty(categoriesFormated) ? (
             <Section>
@@ -69,7 +69,8 @@ const IndexPage = ({ onGetHomePageData, homepageData, searchData }) => {
           imageHeight="60px"
         />
       )}
-      {isSearch && isEmpty(searchDataFormatted) && <div>No product found</div>}
+      {isSearch && !loadData && isEmpty(searchDataFormatted) && <div>No product found</div>}
+      {loadData && <div>Data is still loading ...</div>}
     </Layout>
   )
 }
@@ -77,12 +78,14 @@ const IndexPage = ({ onGetHomePageData, homepageData, searchData }) => {
 IndexPage.propTypes = {
   onGetHomePageData: func.isRequired,
   homepageData: objectOf(any).isRequired,
-  searchData: arrayOf(any).isRequired
+  searchData: arrayOf(any).isRequired,
+  loadData: bool.isRequired,
 };
 
 export const mapStateToProps = createStructuredSelector({
   homepageData: selectHomePageData(),
   searchData: selectHomePageData('searchData'),
+  loadData: selectHomePageData('loading'),
 });
 
 export const mapDispatchToProps = {
